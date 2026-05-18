@@ -1,0 +1,1760 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nail by Yaseen Makeover & Academy</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --pink: #e8005a;
+        --hot-pink: #ff0080;
+        --light-pink: #fce4ec;
+        --soft-pink: #fdf0f5;
+        --yellow: #ffd700;
+        --dark: #1a0010;
+        --mid: #6b0035;
+        --white: #ffffff;
+        --gradient-main: linear-gradient(
+          135deg,
+          #ff0080 0%,
+          #e8005a 50%,
+          #c0004a 100%
+        );
+        --gradient-gold: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--soft-pink);
+        color: var(--dark);
+        overflow-x: hidden;
+      }
+
+      /* ===== FLOATING NAIL PARTICLES ===== */
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .particle {
+        position: absolute;
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        opacity: 0.08;
+        animation: float linear infinite;
+      }
+
+      .particle:nth-child(1) {
+        width: 30px;
+        height: 45px;
+        background: var(--pink);
+        left: 5%;
+        animation-duration: 12s;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        width: 20px;
+        height: 32px;
+        background: var(--yellow);
+        left: 15%;
+        animation-duration: 15s;
+        animation-delay: -3s;
+      }
+      .particle:nth-child(3) {
+        width: 25px;
+        height: 40px;
+        background: var(--hot-pink);
+        left: 30%;
+        animation-duration: 10s;
+        animation-delay: -6s;
+      }
+      .particle:nth-child(4) {
+        width: 18px;
+        height: 28px;
+        background: var(--pink);
+        left: 50%;
+        animation-duration: 18s;
+        animation-delay: -2s;
+      }
+      .particle:nth-child(5) {
+        width: 35px;
+        height: 55px;
+        background: var(--yellow);
+        left: 65%;
+        animation-duration: 13s;
+        animation-delay: -8s;
+      }
+      .particle:nth-child(6) {
+        width: 22px;
+        height: 36px;
+        background: var(--hot-pink);
+        left: 80%;
+        animation-duration: 16s;
+        animation-delay: -4s;
+      }
+      .particle:nth-child(7) {
+        width: 28px;
+        height: 44px;
+        background: var(--pink);
+        left: 90%;
+        animation-duration: 11s;
+        animation-delay: -1s;
+      }
+      .particle:nth-child(8) {
+        width: 16px;
+        height: 26px;
+        background: var(--yellow);
+        left: 40%;
+        animation-duration: 20s;
+        animation-delay: -9s;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(110vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.08;
+        }
+        90% {
+          opacity: 0.08;
+        }
+        100% {
+          transform: translateY(-10vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* ===== NAVBAR ===== */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 2px solid var(--light-pink);
+        padding: 0 2rem;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 30px rgba(232, 0, 90, 0.1);
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .nav-logo-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--gradient-main);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        box-shadow: 0 4px 15px rgba(232, 0, 90, 0.4);
+        animation: pulse-logo 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse-logo {
+        0%,
+        100% {
+          box-shadow: 0 4px 15px rgba(232, 0, 90, 0.4);
+        }
+        50% {
+          box-shadow: 0 4px 25px rgba(232, 0, 90, 0.7);
+        }
+      }
+
+      .nav-logo-text {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--pink);
+        line-height: 1.2;
+      }
+
+      .nav-logo-sub {
+        font-size: 0.65rem;
+        color: var(--mid);
+        font-weight: 400;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gradient-main);
+        transition: width 0.3s;
+        border-radius: 2px;
+      }
+
+      .nav-links a:hover {
+        color: var(--pink);
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-cta {
+        background: var(--gradient-main);
+        color: white !important;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        box-shadow: 0 4px 15px rgba(232, 0, 90, 0.3);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s !important;
+      }
+
+      .nav-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(232, 0, 90, 0.5) !important;
+      }
+
+      .nav-cta::after {
+        display: none !important;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        min-height: 100vh;
+        background: var(--gradient-main);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding-top: 70px;
+      }
+
+      .hero-bg-pattern {
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 20% 30%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 215, 0, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 255, 255, 0.05) 0%,
+            transparent 60%
+          );
+      }
+
+      .hero-circles {
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        border: 60px solid rgba(255, 255, 255, 0.08);
+        animation: rotate-slow 20s linear infinite;
+      }
+
+      .hero-circles::before {
+        content: "";
+        position: absolute;
+        top: 80px;
+        left: 80px;
+        right: 80px;
+        bottom: 80px;
+        border-radius: 50%;
+        border: 40px solid rgba(255, 215, 0, 0.12);
+        animation: rotate-slow 15s linear infinite reverse;
+      }
+
+      @keyframes rotate-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+        padding: 2rem;
+        max-width: 900px;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 6px 20px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(10px);
+        animation: fadeDown 0.8s ease both;
+      }
+
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+        animation: fadeDown 0.8s ease 0.2s both;
+      }
+
+      .hero-title span {
+        color: var(--yellow);
+        font-style: italic;
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        opacity: 0.9;
+        margin-bottom: 2rem;
+        font-weight: 300;
+        letter-spacing: 0.05em;
+        animation: fadeDown 0.8s ease 0.4s both;
+      }
+
+      .hero-offer {
+        display: inline-block;
+        background: var(--gradient-gold);
+        color: var(--dark);
+        font-size: 1.3rem;
+        font-weight: 700;
+        padding: 12px 30px;
+        border-radius: 50px;
+        margin-bottom: 2.5rem;
+        animation: bounce-in 0.8s ease 0.6s both;
+        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+      }
+
+      @keyframes bounce-in {
+        0% {
+          transform: scale(0) translateY(-20px);
+          opacity: 0;
+        }
+        70% {
+          transform: scale(1.05) translateY(5px);
+        }
+        100% {
+          transform: scale(1) translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeDown 0.8s ease 0.8s both;
+      }
+
+      .btn-white {
+        background: white;
+        color: var(--pink);
+        padding: 14px 32px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: white;
+        padding: 14px 32px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-white:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+      }
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 3rem;
+        justify-content: center;
+        margin-top: 4rem;
+        animation: fadeUp 0.8s ease 1s both;
+        flex-wrap: wrap;
+      }
+
+      .hero-stat {
+        text-align: center;
+      }
+
+      .hero-stat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--yellow);
+        display: block;
+      }
+
+      .hero-stat-label {
+        font-size: 0.8rem;
+        opacity: 0.8;
+        letter-spacing: 0.05em;
+      }
+
+      /* ===== SCROLL NAIL ANIMATION ===== */
+      .nail-scroll-row {
+        background: var(--dark);
+        padding: 1rem 0;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .nail-scroll-inner {
+        display: inline-flex;
+        gap: 2rem;
+        animation: marquee 25s linear infinite;
+        align-items: center;
+      }
+
+      .nail-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--yellow);
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0 1rem;
+      }
+
+      .nail-tag-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--pink);
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ===== SERVICES ===== */
+      .services {
+        padding: 6rem 2rem;
+        background: white;
+        position: relative;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-tag {
+        display: inline-block;
+        background: var(--light-pink);
+        color: var(--pink);
+        padding: 5px 18px;
+        border-radius: 50px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        font-weight: 700;
+        color: var(--dark);
+        line-height: 1.2;
+      }
+
+      .section-title span {
+        color: var(--pink);
+      }
+
+      .section-sub {
+        margin-top: 0.75rem;
+        color: #666;
+        font-size: 1rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .service-card {
+        background: var(--soft-pink);
+        border-radius: 20px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        border: 1px solid rgba(232, 0, 90, 0.08);
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(232, 0, 90, 0.15);
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-main);
+      }
+
+      .service-icon {
+        width: 56px;
+        height: 56px;
+        background: var(--gradient-main);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        margin-bottom: 1.2rem;
+        box-shadow: 0 6px 20px rgba(232, 0, 90, 0.3);
+      }
+
+      .service-card h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .service-card p {
+        font-size: 0.9rem;
+        color: #777;
+        line-height: 1.6;
+      }
+
+      .service-price {
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--pink);
+      }
+
+      .service-price s {
+        font-size: 0.9rem;
+        color: #aaa;
+        font-weight: 400;
+      }
+
+      /* ===== OFFER BANNER ===== */
+      .offer-banner {
+        background: var(--gradient-main);
+        padding: 4rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .offer-banner::before {
+        content: "💅";
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+        font-size: 5rem;
+        opacity: 0.2;
+      }
+
+      .offer-banner::after {
+        content: "💅";
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%) scaleX(-1);
+        font-size: 5rem;
+        opacity: 0.2;
+      }
+
+      .offer-banner h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        color: white;
+        margin-bottom: 0.5rem;
+      }
+
+      .offer-big {
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 700;
+        color: var(--yellow);
+        font-family: "Playfair Display", serif;
+        line-height: 1;
+        margin: 0.5rem 0;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .offer-label {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 300;
+        letter-spacing: 0.1em;
+      }
+
+      /* ===== COURSE ===== */
+      .course {
+        padding: 6rem 2rem;
+        background: var(--soft-pink);
+      }
+
+      .course-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      @media (max-width: 768px) {
+        .course-container {
+          grid-template-columns: 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+
+      .course-info h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+        color: var(--dark);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .course-info h2 span {
+        color: var(--pink);
+      }
+
+      .course-info p {
+        color: #666;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+
+      .course-includes {
+        background: var(--pink);
+        color: white;
+        display: inline-block;
+        padding: 4px 14px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      .course-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+        margin-bottom: 2rem;
+      }
+
+      .course-list li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+        color: var(--dark);
+      }
+
+      .course-list li::before {
+        content: "✓";
+        width: 20px;
+        height: 20px;
+        background: var(--gradient-main);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .nail-art-section {
+        margin-top: 1.5rem;
+      }
+
+      .nail-art-label {
+        background: var(--pink);
+        color: white;
+        display: inline-block;
+        padding: 4px 14px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 0.8rem;
+      }
+
+      .nail-art-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .nail-art-chip {
+        background: white;
+        border: 1px solid rgba(232, 0, 90, 0.2);
+        color: var(--mid);
+        padding: 5px 12px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      /* COURSE CARD */
+      .course-card {
+        background: white;
+        border-radius: 24px;
+        padding: 2.5rem;
+        box-shadow: 0 20px 60px rgba(232, 0, 90, 0.12);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .course-card::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 180px;
+        height: 180px;
+        background: var(--light-pink);
+        border-radius: 50%;
+      }
+
+      .price-old {
+        font-size: 1.2rem;
+        text-decoration: line-through;
+        color: #aaa;
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+
+      .price-new {
+        font-family: "Playfair Display", serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--pink);
+        line-height: 1;
+        margin-bottom: 0.3rem;
+      }
+
+      .price-label {
+        font-size: 0.85rem;
+        color: #888;
+        margin-bottom: 2rem;
+        display: block;
+      }
+
+      .course-perks {
+        list-style: none;
+        text-align: left;
+        margin-bottom: 2rem;
+      }
+
+      .course-perks li {
+        padding: 0.7rem 0;
+        border-bottom: 1px solid var(--light-pink);
+        font-size: 0.9rem;
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .perk-icon {
+        width: 32px;
+        height: 32px;
+        background: var(--light-pink);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+
+      .course-meta {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .meta-chip {
+        background: var(--soft-pink);
+        border: 1px solid rgba(232, 0, 90, 0.15);
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        color: var(--mid);
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .meta-chip strong {
+        display: block;
+        color: var(--pink);
+        font-size: 0.9rem;
+      }
+
+      /* ===== WHATSAPP CTA ===== */
+      .whatsapp-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #25d366;
+        color: white;
+        padding: 14px 28px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        margin-top: 1.5rem;
+        animation: pulse-wa 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse-wa {
+        0%,
+        100% {
+          box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        50% {
+          box-shadow: 0 8px 35px rgba(37, 211, 102, 0.7);
+        }
+      }
+
+      .whatsapp-cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+        animation: none;
+      }
+
+      .wa-icon {
+        width: 24px;
+        height: 24px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #25d366;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      /* ===== WHY US ===== */
+      .why-us {
+        padding: 6rem 2rem;
+        background: white;
+      }
+
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .why-card {
+        text-align: center;
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+        border: 1.5px solid var(--light-pink);
+        transition: all 0.3s;
+        position: relative;
+      }
+
+      .why-card:hover {
+        border-color: var(--pink);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(232, 0, 90, 0.1);
+      }
+
+      .why-icon {
+        font-size: 2.5rem;
+        display: block;
+        margin-bottom: 1rem;
+        animation: sway 3s ease-in-out infinite;
+      }
+
+      @keyframes sway {
+        0%,
+        100% {
+          transform: rotate(-5deg);
+        }
+        50% {
+          transform: rotate(5deg);
+        }
+      }
+
+      .why-card h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .why-card p {
+        font-size: 0.85rem;
+        color: #888;
+        line-height: 1.6;
+      }
+
+      /* ===== CONTACT ===== */
+      .contact {
+        padding: 6rem 2rem;
+        background: var(--soft-pink);
+      }
+
+      .contact-inner {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .contact-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .contact-card {
+        background: white;
+        border-radius: 16px;
+        padding: 1.8rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(232, 0, 90, 0.08);
+        transition: transform 0.3s;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .contact-card .c-icon {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+        display: block;
+      }
+
+      .contact-card h4 {
+        font-size: 0.8rem;
+        color: #aaa;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.4rem;
+      }
+
+      .contact-card p {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .contact-card a {
+        color: var(--pink);
+        text-decoration: none;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--dark);
+        color: white;
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.85rem;
+        opacity: 0.8;
+      }
+
+      footer span {
+        color: var(--yellow);
+      }
+
+      /* ===== NAIL SVG DECORATIONS ===== */
+      .nail-svg-deco {
+        position: absolute;
+        pointer-events: none;
+        opacity: 0.07;
+      }
+
+      /* ===== ANIMATIONS ===== */
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== NAIL SHAPE CSS ===== */
+      .nail-shape {
+        display: inline-block;
+        width: 22px;
+        height: 30px;
+        background: var(--gradient-main);
+        border-radius: 40% 40% 50% 50% / 30% 30% 60% 60%;
+        flex-shrink: 0;
+      }
+
+      .nail-divider {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        justify-content: center;
+        margin: 1.5rem auto;
+        max-width: 300px;
+      }
+
+      .nail-divider-line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--pink),
+          transparent
+        );
+      }
+
+      .nail-divider-nail {
+        width: 16px;
+        height: 22px;
+        background: var(--gradient-main);
+        border-radius: 40% 40% 50% 50% / 30% 30% 60% 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating particles -->
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav>
+      <div class="nav-logo">
+        <div class="nav-logo-icon">💅</div>
+        <div>
+          <div class="nav-logo-text">Nail by Yaseen</div>
+          <div class="nav-logo-sub">Makeover & Academy</div>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#course">Academy</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="https://wa.me/919711821074" class="nav-cta">WhatsApp Now</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-bg-pattern"></div>
+      <div class="hero-circles"></div>
+
+      <!-- Big nail SVG deco -->
+      <svg
+        class="nail-svg-deco"
+        style="bottom: -40px; left: -60px; width: 300px"
+        viewBox="0 0 100 140"
+      >
+        <rect x="10" y="20" width="80" height="110" rx="40" fill="white" />
+      </svg>
+      <svg
+        class="nail-svg-deco"
+        style="top: 60px; right: -30px; width: 200px; opacity: 0.05"
+        viewBox="0 0 100 140"
+      >
+        <rect x="10" y="20" width="80" height="110" rx="40" fill="white" />
+      </svg>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          ✨ Delhi's Premier Nail Studio & Academy ✨
+        </div>
+        <h1 class="hero-title">
+          Nail by <span>Yaseen</span><br />Makeover & Academy
+        </h1>
+        <p class="hero-subtitle">
+          Bridal Makeup · Nail Extensions · Facials · Eyelashes · All Courses
+          Available
+        </p>
+
+        <div class="hero-offer">
+          🎉 Special Offer: Nail Extension @ ₹399/- only!
+        </div>
+
+        <div class="hero-buttons">
+          <a href="https://wa.me/919711821074" class="btn-white">
+            💬 WhatsApp Us
+          </a>
+          <a href="#course" class="btn-outline"> 🎓 View Courses </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-num">7</span>
+            <span class="hero-stat-label">Days Open</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">2+</span>
+            <span class="hero-stat-label">Branches</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">100%</span>
+            <span class="hero-stat-label">Home Service</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">∞</span>
+            <span class="hero-stat-label">Beauty Skills</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="nail-scroll-row">
+      <div class="nail-scroll-inner">
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Gel Nail Extensions</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Bridal Makeup</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Eyelash Extensions</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Manicure & Pedicure</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Facials & Waxing</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Nail Art Courses</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Home Service Available</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Bridal Package</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Gel Nail Extensions</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Bridal Makeup</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Eyelash Extensions</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Manicure & Pedicure</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Facials & Waxing</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Nail Art Courses</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Home Service Available</span
+        >
+        <span class="nail-tag"
+          ><span class="nail-tag-dot"></span> Bridal Package</span
+        >
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="section-header animate-on-scroll">
+        <div class="section-tag">Our Services</div>
+        <h2 class="section-title">
+          Beauty That <span>Speaks</span> for Itself
+        </h2>
+        <p class="section-sub">
+          From everyday glam to bridal perfection — we do it all with love
+        </p>
+        <div class="nail-divider">
+          <div class="nail-divider-line"></div>
+          <div class="nail-divider-nail"></div>
+          <div class="nail-divider-line"></div>
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <div
+          class="service-card animate-on-scroll"
+          style="transition-delay: 0.1s"
+        >
+          <div class="service-icon">💍</div>
+          <h3>Bridal Makeup</h3>
+          <p>
+            Look absolutely radiant on your special day with our expert bridal
+            artistry and complete bridal packages.
+          </p>
+          <div class="service-price">Bridal Package Available</div>
+        </div>
+        <div
+          class="service-card animate-on-scroll"
+          style="transition-delay: 0.2s"
+        >
+          <div class="service-icon">💅</div>
+          <h3>Nail Extensions</h3>
+          <p>
+            Gel & acrylic extensions, nail art, 3D designs, chrome, ombre — your
+            nails, your statement.
+          </p>
+          <div class="service-price">From ₹399/- <s>₹799</s></div>
+        </div>
+        <div
+          class="service-card animate-on-scroll"
+          style="transition-delay: 0.3s"
+        >
+          <div class="service-icon">✨</div>
+          <h3>Eyelash Extensions</h3>
+          <p>
+            Gorgeous, fluttery lashes that open up your eyes and last for weeks.
+            Natural to dramatic styles.
+          </p>
+          <div class="service-price">Call for Pricing</div>
+        </div>
+        <div
+          class="service-card animate-on-scroll"
+          style="transition-delay: 0.4s"
+        >
+          <div class="service-icon">🌸</div>
+          <h3>Manicure & Pedicure</h3>
+          <p>
+            Relaxing, beautifying hand & foot treatments with premium products
+            for healthy, gorgeous nails.
+          </p>
+          <div class="service-price">Packages from ₹599</div>
+        </div>
+        <div
+          class="service-card animate-on-scroll"
+          style="transition-delay: 0.5s"
+        >
+          <div class="service-icon">🧖‍♀️</div>
+          <h3>Facials & Waxing</h3>
+          <p>
+            Glow-boosting facials and smooth waxing services. Skin you'll be
+            proud to show off.
+          </p>
+          <div class="service-price">From ₹349/-</div>
+        </div>
+        <div
+          class="service-card animate-on-scroll"
+          style="transition-delay: 0.6s"
+        >
+          <div class="service-icon">🏠</div>
+          <h3>Home Service</h3>
+          <p>
+            Salon-quality beauty treatments brought right to your door — 7 days
+            a week, Delhi NCR.
+          </p>
+          <div class="service-price">Available 7 Days</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFER BANNER -->
+    <div class="offer-banner">
+      <h2>💎 Limited Time Offer</h2>
+      <div class="nail-divider" style="margin: 0.5rem auto">
+        <div
+          class="nail-divider-line"
+          style="
+            background: linear-gradient(
+              to right,
+              transparent,
+              rgba(255, 255, 255, 0.3),
+              transparent
+            );
+          "
+        ></div>
+        <div class="nail-divider-nail" style="background: var(--yellow)"></div>
+        <div
+          class="nail-divider-line"
+          style="
+            background: linear-gradient(
+              to right,
+              transparent,
+              rgba(255, 255, 255, 0.3),
+              transparent
+            );
+          "
+        ></div>
+      </div>
+      <div class="offer-big">₹399/-</div>
+      <div class="offer-label">NAIL EXTENSION · PROFESSIONAL QUALITY</div>
+      <br />
+      <a
+        href="https://wa.me/919711821074?text=Hi%20Yaseen!%20I%20want%20the%20%E2%82%B9399%20nail%20extension%20offer!"
+        class="btn-white"
+        style="display: inline-flex; margin-top: 1rem"
+      >
+        Book This Offer 💬
+      </a>
+    </div>
+
+    <!-- ACADEMY / COURSE -->
+    <section class="course" id="course">
+      <div class="section-header animate-on-scroll" style="margin-bottom: 3rem">
+        <div class="section-tag">Academy</div>
+        <h2 class="section-title">
+          Turn Your Passion<br />Into a <span>Career</span>
+        </h2>
+        <p class="section-sub">
+          Professional Nail Art Course with hands-on training and a kit included
+        </p>
+      </div>
+
+      <div class="course-container">
+        <div class="course-info animate-on-scroll">
+          <h2>Professional <span>Nail Art</span> Course</h2>
+          <p>
+            Learn everything from gel extensions to the latest nail art trends
+            with expert guidance and 100% practical training for confident
+            results.
+          </p>
+
+          <div class="course-includes">Course Includes:</div>
+          <ul class="course-list">
+            <li>Gel Nail Extensions</li>
+            <li>Acrylic Nail Extensions</li>
+            <li>Nail Shapes & Anatomy</li>
+            <li>Nail Prep & Cuticle Care</li>
+            <li>Refilling & Removal</li>
+            <li>Nail Care & Maintenance</li>
+            <li>All Trending Designs</li>
+            <li>3D Art / Brush Art</li>
+          </ul>
+
+          <div class="nail-art-section">
+            <div class="nail-art-label">All Nail Art Styles:</div>
+            <div class="nail-art-grid">
+              <span class="nail-art-chip">✦ Glitter / Foil</span>
+              <span class="nail-art-chip">✦ French / Ombre</span>
+              <span class="nail-art-chip">✦ Chrome / Cat Eye</span>
+              <span class="nail-art-chip">✦ Animal Print</span>
+              <span class="nail-art-chip">✦ Rhinestones</span>
+              <span class="nail-art-chip">✦ Bridal Nail Art</span>
+              <span class="nail-art-chip">✦ Marble</span>
+              <span class="nail-art-chip">✦ Emboss</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll" style="transition-delay: 0.2s">
+          <div class="course-card">
+            <span class="price-old">₹25,000</span>
+            <div class="price-new">₹20,000</div>
+            <span class="price-label">Complete Professional Course Fee</span>
+
+            <ul class="course-perks">
+              <li>
+                <div class="perk-icon">🧰</div>
+                <div>
+                  <strong>Professional Nail Art Kit Included</strong
+                  ><br /><small style="color: #aaa"
+                    >All tools & products provided</small
+                  >
+                </div>
+              </li>
+              <li>
+                <div class="perk-icon">🎓</div>
+                <div>
+                  <strong>Certificate Course</strong><br /><small
+                    style="color: #aaa"
+                    >Recognized certification on completion</small
+                  >
+                </div>
+              </li>
+              <li>
+                <div class="perk-icon">👩‍🏫</div>
+                <div>
+                  <strong>Expert Trainer</strong><br /><small
+                    style="color: #aaa"
+                    >Personal guidance & practical training</small
+                  >
+                </div>
+              </li>
+              <li>
+                <div class="perk-icon">🪑</div>
+                <div>
+                  <strong>Limited Seats Available</strong><br /><small
+                    style="color: #aaa"
+                    >Enroll early to secure your spot</small
+                  >
+                </div>
+              </li>
+            </ul>
+
+            <div class="course-meta">
+              <div class="meta-chip">
+                <strong>2 Months</strong>
+                Duration
+              </div>
+              <div class="meta-chip">
+                <strong>3 Hrs/Day</strong>
+                Daily Practice
+              </div>
+              <div class="meta-chip">
+                <strong>100%</strong>
+                Practical
+              </div>
+            </div>
+
+            <a
+              href="https://wa.me/919711821074?text=Hello!%20I%20want%20to%20enroll%20in%20the%20Professional%20Nail%20Art%20Course%20at%20%E2%82%B920%2C000"
+              class="whatsapp-cta"
+            >
+              <div class="wa-icon">W</div>
+              WhatsApp to Enroll!
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="why-us" id="why">
+      <div class="section-header animate-on-scroll">
+        <div class="section-tag">Why Choose Us</div>
+        <h2 class="section-title">
+          Delhi's <span>Most Trusted</span><br />Nail Studio
+        </h2>
+        <div class="nail-divider">
+          <div class="nail-divider-line"></div>
+          <div class="nail-divider-nail"></div>
+          <div class="nail-divider-line"></div>
+        </div>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card animate-on-scroll" style="transition-delay: 0.1s">
+          <span class="why-icon">🏆</span>
+          <h3>Professional Quality</h3>
+          <p>
+            Salon-grade products and techniques used by certified professionals
+            every time.
+          </p>
+        </div>
+        <div class="why-card animate-on-scroll" style="transition-delay: 0.2s">
+          <span class="why-icon">📅</span>
+          <h3>Open 7 Days a Week</h3>
+          <p>
+            Because beauty doesn't take weekends off. We're here whenever you
+            need us.
+          </p>
+        </div>
+        <div class="why-card animate-on-scroll" style="transition-delay: 0.3s">
+          <span class="why-icon">🏠</span>
+          <h3>Home Service</h3>
+          <p>
+            Can't come to us? We come to you! Same quality, comfort of your own
+            home.
+          </p>
+        </div>
+        <div class="why-card animate-on-scroll" style="transition-delay: 0.4s">
+          <span class="why-icon">💰</span>
+          <h3>Affordable Prices</h3>
+          <p>
+            Best quality at unbeatable prices. Nail extensions starting at just
+            ₹399!
+          </p>
+        </div>
+        <div class="why-card animate-on-scroll" style="transition-delay: 0.5s">
+          <span class="why-icon">🎓</span>
+          <h3>Learn & Earn</h3>
+          <p>
+            Our academy turns nail enthusiasts into career professionals with
+            certified courses.
+          </p>
+        </div>
+        <div class="why-card animate-on-scroll" style="transition-delay: 0.6s">
+          <span class="why-icon">💍</span>
+          <h3>Bridal Specialists</h3>
+          <p>
+            Complete bridal packages for your most important day — nails, makeup
+            & more.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="contact-inner">
+        <div class="section-header animate-on-scroll">
+          <div class="section-tag">Get in Touch</div>
+          <h2 class="section-title">Book Your <span>Appointment</span></h2>
+          <p class="section-sub">
+            Reach us anytime — we love to hear from you!
+          </p>
+        </div>
+
+        <div class="contact-cards">
+          <div
+            class="contact-card animate-on-scroll"
+            style="transition-delay: 0.1s"
+          >
+            <span class="c-icon">📞</span>
+            <h4>Call / WhatsApp</h4>
+            <p><a href="tel:9711821074">9711821074</a></p>
+            <p><a href="tel:8287024031">8287024031</a></p>
+          </div>
+          <div
+            class="contact-card animate-on-scroll"
+            style="transition-delay: 0.2s"
+          >
+            <span class="c-icon">📍</span>
+            <h4>Location</h4>
+            <p>1st Floor, Near D Couture<br />Delhi</p>
+          </div>
+          <div
+            class="contact-card animate-on-scroll"
+            style="transition-delay: 0.3s"
+          >
+            <span class="c-icon">📸</span>
+            <h4>Instagram</h4>
+            <p>
+              <a href="https://instagram.com/nail_by_yaseen" target="_blank"
+                >@nail_by_yaseen</a
+              >
+            </p>
+          </div>
+          <div
+            class="contact-card animate-on-scroll"
+            style="transition-delay: 0.4s"
+          >
+            <span class="c-icon">🕐</span>
+            <h4>Working Hours</h4>
+            <p>7 Days a Week<br />Home Service Available</p>
+          </div>
+        </div>
+
+        <div
+          style="margin-top: 3rem; text-align: center"
+          class="animate-on-scroll"
+        >
+          <a
+            href="https://wa.me/919711821074?text=Hi!%20I%20want%20to%20book%20an%20appointment%20at%20Nail%20by%20Yaseen"
+            class="whatsapp-cta"
+            style="font-size: 1.1rem; padding: 16px 36px"
+          >
+            <div class="wa-icon">W</div>
+            Book Appointment on WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        © 2025 <span>Nail by Yaseen Makeover & Academy</span> · Delhi · All
+        Rights Reserved
+      </p>
+      <p style="margin-top: 0.5rem">
+        📞 9711821074 · 8287024031 · 📸 @nail_by_yaseen
+      </p>
+    </footer>
+
+    <script>
+      // Scroll animation observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((el) => {
+            if (el.isIntersecting) {
+              el.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+
+      document
+        .querySelectorAll(".animate-on-scroll")
+        .forEach((el) => observer.observe(el));
+
+      // Smooth scroll for nav links
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const target = document.querySelector(a.getAttribute("href"));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 50) {
+          nav.style.boxShadow = "0 4px 30px rgba(232,0,90,0.2)";
+        } else {
+          nav.style.boxShadow = "0 4px 30px rgba(232,0,90,0.1)";
+        }
+      });
+    </script>
+  </body>
+</html>
